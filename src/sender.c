@@ -9,6 +9,20 @@
 #define BUFFER_SIZE 1024
 #define SERVER_IP "10.0.0.2"   // the receiver's IP, inside receiver-ns
 
+/*
+ * ANALOGY MAPPING TO SENDER CODE:
+ * 
+ * Analogy step                      Code step
+ * ---------------------------------------- -------------------------------------------
+ * Get a phone                       socket(AF_INET, SOCK_STREAM, 0)
+ * Look up your friend's number      fill server_addr (IP + port)
+ * Dial and wait for them to pick up connect(sock_fd, &server_addr, ...)
+ * Open the paper document           fopen("/path/to/file", "rb")
+ * Read a paragraph, speak it        fread + write loop
+ * Finish and hang up                fclose(in_file) + close(sock_fd)
+ */
+
+
 int main(void) {
     int sock_fd;
     struct sockaddr_in server_addr;
@@ -28,6 +42,7 @@ int main(void) {
     inet_pton(AF_INET, SERVER_IP, &server_addr.sin_addr);
 
     // 3. Actively connect to the receiver
+    // sock_fd -> connect to whom
     if (connect(sock_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
         perror("connect failed");
         close(sock_fd);
