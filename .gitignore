@@ -1,0 +1,6 @@
+build/
+output/*
+!output/.gitkeep
+*.o
+.vscode/
+*.swp
