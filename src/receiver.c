@@ -1,4 +1,4 @@
-#include <stdio.h>      // for printf, perror, fopen, fwrite, fclose
+#include <stdio.h>      // for printf, perror, fopen, fwrite,...
 #include <stdlib.h>     // for exit()
 #include <string.h>     // for memset()
 #include <unistd.h>     // for close(), read()
