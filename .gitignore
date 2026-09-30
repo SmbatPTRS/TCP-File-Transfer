@@ -4,3 +4,5 @@ output/*
 *.o
 .vscode/
 *.swp
+# Ignore secret encryption keys
+data/key.bin
